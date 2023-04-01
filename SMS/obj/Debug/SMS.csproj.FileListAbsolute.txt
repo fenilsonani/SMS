@@ -1,0 +1,17 @@
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\SMS.exe.config
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\SMS.exe
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\SMS.pdb
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.csproj.AssemblyReference.cache
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.csproj.SuggestedBindingRedirects.cache
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Form1.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Properties.Resources.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.csproj.GenerateResource.cache
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.csproj.CoreCompileInputs.cache
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.exe
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.pdb
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.forgetpassword.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.admin.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.staffManage.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.staffview.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Categorey.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Product.resources
