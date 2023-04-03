@@ -15,6 +15,7 @@ namespace SMS
         private Form1 form = new Form1();
         public admin()
         {
+
             InitializeComponent();
         }
 
