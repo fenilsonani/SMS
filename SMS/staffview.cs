@@ -83,5 +83,25 @@ namespace SMS
             //if they will click on any recoed it will show in the Messabox
             MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            userDataBind();
+            textBox1.Clear();
+            comboBox1.Text = string.Empty;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //redirect to home 
+            admin admin = new admin();
+            admin.Show();
+            this.Hide();
+        }
     }
 }

@@ -33,7 +33,16 @@ namespace SMS
         {
             //SETS THE USERNAME IN THE LABEL
             label1.Text = "username : "+ storage.getUsername();
-            label2.Text = "role : "+storage.getRole();        
+            label2.Text = "role : "+storage.getRole();  
+            
+            if (storage.getRole() == "Admin")
+            {
+                manageStaffToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                manageStaffToolStripMenuItem.Visible=false;
+            }
 
 
         }
@@ -147,6 +156,65 @@ namespace SMS
             storage.viewCategory = true;
             Categorey categorey = new Categorey();
             categorey.Show();
+            this.Hide();
+        }
+
+        private void viewAllToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewAllToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            //show the product view
+            productView productView = new productView();
+            productView.Show();
+            this.Hide();
+
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //fill product
+            storage.addProduct = false;
+            storage.updateProduct = false;
+            storage.deleteProduct = false;
+            storage.viewProduct = true;
+            Product pm = new Product();
+            pm.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //code for the exit button that will give the user a message box to confirm the exit
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+
+        private void generateBillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void viewAllToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            report report = new report();
+            report.Show();
+            this.Hide();
+        }
+
+        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            generateBill generateBill = new generateBill();
+            generateBill.Show();
             this.Hide();
         }
     }

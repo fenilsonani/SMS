@@ -15,3 +15,11 @@ C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.staffManage.resource
 C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.staffview.resources
 C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Categorey.resources
 C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Product.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.catView.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.productView.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.generateBill.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.report.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\itextsharp.dll
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\itextsharp.xml
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.csproj.CopyComplete

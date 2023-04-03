@@ -40,23 +40,24 @@ namespace SMS
 
             if (dr.Read())
             {
-                MessageBox.Show("Login Successfull");
                 if (comboBox1.Text == "Admin")
                 {
                     admin ad=new admin();
                     ad.Show();
                     this.Hide();
-                    MessageBox.Show("Admin");
+                    //MessageBox.Show("Admin");
                 }
                 else if (comboBox1.Text == "Staff")
                 {
-                    //this.Hide();
-                    MessageBox.Show("Staff");
+                    admin ad=new admin();
+                    ad.Show();
+                    this.Hide();
+                    //MessageBox.Show("Staff");
                 }
             }
             else
             {
-                MessageBox.Show("Login Failed");
+                MessageBox.Show("Login Failed Please Enter Correct Username,Password and Role");
             }
         }
 

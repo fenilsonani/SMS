@@ -28,7 +28,9 @@ namespace SMS
         public static bool updateCategory;
         public static bool deleteCategory;
         public static bool viewCategory;
+        public static bool updateFromBill=false;
 
+       
         
 
         public static string getUsername()

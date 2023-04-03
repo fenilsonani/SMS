@@ -27,19 +27,28 @@ namespace SMS
             button4.Enabled = storage.deleteCategory;
             button5.Enabled = storage.viewCategory;
 
-            if (button2.Enabled )
+            if (storage.addCategory)
             {
-                button3.Enabled = storage.viewCategory;
-            }
-            if (storage.viewCategory)
-            {
-                textBox1.Enabled = true;
+                textBox1.Enabled = false;
+                con.Close();
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("select max(c_id) from Categorey;", con);
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+                while (dr1.Read())
+                {
+                    textBox1.Text = (Convert.ToInt32(dr1[0]) + 1).ToString();
+                }
+                con.Close();
             }
             else
             {
-                textBox1.Enabled  =false;
-                //that will load maximum c_id+1 in categorey tabel
+                textBox1.Enabled = true;
             }
+
+            //if the add button is true then it will show maximum id + 1 in the textbox
+
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,7 +70,7 @@ namespace SMS
             //)
             con.Close();
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into Categorey(name,desc) values('" + textBox2.Text + "','" + textBox3.Text + "');", con);
+            SqlCommand cmd = new SqlCommand("insert into Categorey(name,description) values('" + textBox2.Text + "','" + textBox3.Text + "');", con);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Categorey Added");
             con.Close();
@@ -72,7 +81,7 @@ namespace SMS
         {
             con.Close();
             con.Open();
-            SqlCommand cmd = new SqlCommand("update Categorey set name='" + textBox2.Text + "',desc='" + textBox3.Text + "' where id='" + textBox1.Text + "'", con);
+            SqlCommand cmd = new SqlCommand("update Categorey set name='" + textBox2.Text + "',description='" + textBox3.Text + "' where c_id='" + textBox1.Text + "'", con);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Categorey Updated");
             con.Close();
@@ -88,12 +97,25 @@ namespace SMS
             if (dr.Read())
             {
                 textBox2.Text = dr["name"].ToString();
-                textBox3.Text = dr["desc"].ToString();
+                textBox3.Text = dr["description"].ToString();
             }
             else
             {
                 MessageBox.Show("No data found");
             }
+            con.Close();
+
+            button3.Enabled = true; button4.Enabled = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //delete code
+            con.Close();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete from Categorey where c_id='" + textBox1.Text + "'", con);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Categorey Deleted");
             con.Close();
         }
     }

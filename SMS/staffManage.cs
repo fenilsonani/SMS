@@ -31,6 +31,16 @@ namespace SMS
             if (storage.getAddStaff())
             {
                 textBox1.Enabled = false;
+                con.Close();
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("select max(id) from users;", con);
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+                while (dr1.Read())
+                {
+                    textBox1.Text = (Convert.ToInt32(dr1[0]) + 1).ToString();
+                }
+                con.Close();
+
             }
             else
             {
@@ -39,16 +49,7 @@ namespace SMS
 
             //if the add button is true then it will show maximum id + 1 in the textbox
 
-            con.Close();
-            con.Open();
-            SqlCommand cmd1 = new SqlCommand("select max(id) from users;", con);
-            SqlDataReader dr1 = cmd1.ExecuteReader();
-            while (dr1.Read())
-            {
-                textBox1.Text = (Convert.ToInt32(dr1[0]) + 1).ToString();
-            }
-            con.Close();
-
+            
             //code that will fetch the data from country tabel and bind it to the combobox
             con.Close();
             con.Open();
@@ -240,6 +241,17 @@ namespace SMS
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Record Deleted Successfully");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //it will show the openfiledialog box and select the image and show it in the picturebox
+            
         }
     }
 }
