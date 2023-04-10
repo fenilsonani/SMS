@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using System.Drawing.Drawing2D;
 
 namespace SMS
 {
@@ -67,12 +68,17 @@ namespace SMS
             //code that will hide this form and open forgetpassword form
             forgetpassword fp = new forgetpassword();
             fp.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            //round the textBox1 of border radious 10
+            //textBox1.BorderStyle = BorderStyle.None;
+            //GraphicsPath gp = new GraphicsPath();
+            //gp.AddEllipse(0, 0, textBox1.Width - 3, textBox1.Height - 3);
+            //textBox1.Region = new Region(gp);
         }
     }
 }

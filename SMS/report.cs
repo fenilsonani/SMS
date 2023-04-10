@@ -91,16 +91,17 @@ namespace SMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //this is a for a search query it can perform search any query
-            con.Close();
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select * from bill where bill_id='" + textBox1.Text + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            con.Close();
-            
+            if (comboBox1.Text != "" && textBox1.Text != "")
+            {
+                //code will filter the data from the datagridview
+                string field = comboBox1.Text;
+                string value = textBox1.Text;
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", field, value);
+            }
+            else
+            {
+                MessageBox.Show("Please enter value");
+            }
         }
 
         void comboBoxBinding()
@@ -137,6 +138,7 @@ namespace SMS
             //}
             //con.Close();
             comboBox1.Items.Add("bill_id");
+            comboBox1.Items.Add("customer_name");
         }
 
         private void button2_Click(object sender, EventArgs e)

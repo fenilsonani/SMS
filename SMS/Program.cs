@@ -16,7 +16,10 @@ namespace SMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //when any form load that will shown on center of the screen
+            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //
         }
     }
 }

@@ -68,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(117, 798);
+            this.button1.Location = new System.Drawing.Point(115, 572);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 38);
@@ -79,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(226, 798);
+            this.button2.Location = new System.Drawing.Point(224, 572);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 38);
@@ -90,7 +90,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(334, 798);
+            this.button3.Location = new System.Drawing.Point(332, 572);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 38);
@@ -101,7 +101,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(433, 798);
+            this.button4.Location = new System.Drawing.Point(431, 572);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(93, 38);
@@ -121,7 +121,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(15, 798);
+            this.button5.Location = new System.Drawing.Point(13, 572);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(93, 38);
@@ -407,7 +407,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 861);
+            this.ClientSize = new System.Drawing.Size(628, 629);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -446,7 +446,8 @@
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "staffManage";
-            this.Text = "staffManage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "s";
             this.Load += new System.EventHandler(this.staffManage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

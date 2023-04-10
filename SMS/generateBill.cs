@@ -1,9 +1,13 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,20 +21,21 @@ namespace SMS
         public generateBill()
         {
             InitializeComponent();
+            myListInit();
+            ComboBindaMy();
+            newLoad();
         }
 
         private void generateBill_Load(object sender, EventArgs e)
         {
-            myListInit();
-            ComboBindaMy();
             //generate uniuqe id and store display in textbox9 i can also delete the recoed from the database so that is not affect to the next id
-            newLoad();
             //on load check connection
-            if (con.State == ConnectionState.Open)
-            {
-                con.Close();
-            }
-            con.Open();
+            //if (con.State == ConnectionState.Open)
+            //{
+            //    con.Close();
+            //}
+            
+            //con.Open();
         }
 
         void Myloading()
@@ -43,6 +48,7 @@ namespace SMS
         void newLoad()
         {
             con.Close();
+            con.Close();
             con.Open();
             SqlCommand cmd = new SqlCommand("select * from bill", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -51,13 +57,14 @@ namespace SMS
             textBox9.Text = (dt.Rows.Count + 1).ToString();
             textBox9.Enabled = false;
             con.Close();
-            //reload the form
+            con.Close() ;
             
         }
 
         void myListInit()
         {
             //it will add columns to the listview1
+            con.Close();
             listView1.View = View.Details;
             listView1.Columns.Add("Product ID", 80, HorizontalAlignment.Left);
             listView1.Columns.Add("Product Name", 150, HorizontalAlignment.Left);
@@ -67,6 +74,7 @@ namespace SMS
             listView1.Columns.Add("Customer Name", 150, HorizontalAlignment.Left);
             listView1.Columns.Add("Customer Contact", 80, HorizontalAlignment.Left);
             listView1.Columns.Add("Total", 80, HorizontalAlignment.Left);
+            con.Close();
         }
 
 
@@ -85,8 +93,8 @@ namespace SMS
             {
                 comboBox1.Items.Add(dt.Rows[i][1].ToString());
             }
-            con.Close();
-            con.Open();
+            //con.Close();
+            //con.Open();
             SqlCommand cmd1 = new SqlCommand("select * from cutomer", con);
             SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
             DataTable dt1 = new DataTable();
@@ -115,7 +123,6 @@ namespace SMS
             textBox1.Enabled = false;
             textBox4.Enabled = true;
             textBox2.Enabled = false;
-
             con.Close();
         }
 
@@ -188,41 +195,49 @@ namespace SMS
         private void button2_Click(object sender, EventArgs e)
         {
             //it will add the value into the listview1
-                    //add the value into the listview
-            ListViewItem li = new ListViewItem(textBox3.Text);
-            li.SubItems.Add(comboBox1.Text);
-            li.SubItems.Add(textBox4.Text);
-            li.SubItems.Add(textBox1.Text);
-            li.SubItems.Add(cu_id.Text);
-            li.SubItems.Add(comboBox2.Text);
-            li.SubItems.Add(cu_co_no.Text);
-            li.SubItems.Add(textBox5.Text);
-            
-            //code will also update the gradtotal of textbox6 and update quanity in a database
-            //it will update the total price of the product
-            //code for displayig total
-            
-            //code for updating the quantity of the product
-            try
+            //add the value into the listview
+            //code that cutomer must selected
+            if (comboBox2.Text == "")
             {
-                con.Close();
-                con.Open();
-                SqlCommand cmd = new SqlCommand("update product set quantity=quantity-'"+textBox4.Text+"' where p_id='"+textBox3.Text+"'", con);
-                Myloading();
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Updated");
-                con.Close();
-                listView1.Items.Add(li);
-                int total = 0;
-                for (int i = 0; i < listView1.Items.Count; i++)
-                {
-                    total += Convert.ToInt32(listView1.Items[i].SubItems[7].Text);
-                }
-                textBox6.Text = total.ToString();
+                MessageBox.Show("Please select the customer");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                ListViewItem li = new ListViewItem(textBox3.Text);
+                li.SubItems.Add(comboBox1.Text);
+                li.SubItems.Add(textBox4.Text);
+                li.SubItems.Add(textBox1.Text);
+                li.SubItems.Add(cu_id.Text);
+                li.SubItems.Add(comboBox2.Text);
+                li.SubItems.Add(cu_co_no.Text);
+                li.SubItems.Add(textBox5.Text);
+
+                //code will also update the gradtotal of textbox6 and update quanity in a database
+                //it will update the total price of the product
+                //code for displayig total
+
+                //code for updating the quantity of the product
+                try
+                {
+                    con.Close();
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("update product set quantity=quantity-'" + textBox4.Text + "' where p_id='" + textBox3.Text + "'", con);
+                    Myloading();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Updated");
+                    con.Close();
+                    listView1.Items.Add(li);
+                    int total = 0;
+                    for (int i = 0; i < listView1.Items.Count; i++)
+                    {
+                        total += Convert.ToInt32(listView1.Items[i].SubItems[7].Text);
+                    }
+                    textBox6.Text = total.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -321,8 +336,9 @@ namespace SMS
             try
             {
                 con.Close();
+                //in the last column datetime.now
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into bill values('" + textBox9.Text + "','" + cu_id.Text + "','" + textBox6.Text + "','" + textBox7.Text + "','" + textBox8.Text + "')", con);
+                SqlCommand cmd = new SqlCommand("insert into bill values('" + textBox9.Text + "','" + cu_id.Text + "','" + textBox6.Text + "','" + textBox7.Text + "','" + textBox8.Text + "','" + DateTime.Now + "')", con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Bill Added");
                 con.Close();
@@ -367,6 +383,70 @@ namespace SMS
             admin admin = new admin();
             admin.Show();
             this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //this will downlaod the bill in pdf format
+            //it will create a pdf file and show the Open File Dialog and save there
+            pdfGenerate();
+
+            
+        }
+
+        void pdfGenerate()
+        {
+
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf|All Files (*.*)|*.*";
+
+            saveFileDialog.Title = "Save Your Bill";
+
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Document document = new Document();
+
+                PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create));
+                document.Open();
+                document.Add(new Paragraph("Bill No: " + textBox9.Text));
+                document.Add(new Paragraph("Customer Name: " + comboBox2.Text));
+                document.Add(new Paragraph("Customer Contact No: " + cu_co_no.Text));
+                document.Add(new Paragraph("Total Amount: " + textBox6.Text));
+                document.Add(new Paragraph("Discount Amount: " + textBox7.Text));
+                document.Add(new Paragraph("Net Amount: " + textBox8.Text));
+                document.Add(new Paragraph("Date: " + DateTime.Now));
+                document.Add(new Paragraph(" "));
+                document.Add(new Paragraph(" "));
+                PdfPTable table = new PdfPTable(4);
+                table.AddCell("Product Id");
+                table.AddCell("Product Name");
+                table.AddCell("Product Price");
+                table.AddCell("Product Quantity");
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    table.AddCell(listView1.Items[i].SubItems[0].Text);
+                    table.AddCell(listView1.Items[i].SubItems[1].Text);
+                    table.AddCell(listView1.Items[i].SubItems[2].Text);
+                    table.AddCell(listView1.Items[i].SubItems[3].Text);
+                }
+                document.Add(table);
+                document.Close();
+                MessageBox.Show("Bill Generated");
+
+                //after open the in the default pdf viewer
+                Process.Start(saveFileDialog.FileName);
+
+
+            }
+            else
+            {
+                MessageBox.Show("Cancel By You To Save The Pdf", "Canceled");
+            }
+
+
+
         }
     }
 }

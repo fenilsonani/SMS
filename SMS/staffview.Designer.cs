@@ -114,6 +114,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "staffview";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "staffview";
             this.Load += new System.EventHandler(this.staffview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

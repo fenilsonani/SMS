@@ -253,5 +253,10 @@ namespace SMS
             //it will show the openfiledialog box and select the image and show it in the picturebox
             
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

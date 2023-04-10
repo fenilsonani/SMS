@@ -62,7 +62,8 @@ namespace SMS
         {
             con.Close();
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from product where " + comboBox1.Text + "='" + textBox1.Text + "'", con);
+            //SqlCommand cmd = new SqlCommand("select * from product where " + comboBox1.Text + "='" + textBox1.Text + "'", con);
+            SqlCommand cmd= new SqlCommand("select * from product where " + comboBox1.Text + " like '%" + textBox1.Text + "%'", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

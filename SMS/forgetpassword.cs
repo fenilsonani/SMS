@@ -44,5 +44,10 @@ namespace SMS
             }
             con.Open();
         }
+
+        private void forgetpassword_Load(object sender, EventArgs e)
+        {
+            label4.Text = " Forgetten Password !";
+        }
     }
 }

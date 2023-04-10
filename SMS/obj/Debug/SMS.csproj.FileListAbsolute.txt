@@ -23,3 +23,7 @@ C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\itextsharp.dll
 C:\Users\darshan sabhaya\source\repos\SMS\SMS\bin\Debug\itextsharp.xml
 C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.csproj.CopyComplete
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.help.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.supplier.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.viewSupplier.resources
+C:\Users\darshan sabhaya\source\repos\SMS\SMS\obj\Debug\SMS.Credit.resources

@@ -29,9 +29,19 @@ namespace SMS
         public static bool deleteCategory;
         public static bool viewCategory;
         public static bool updateFromBill=false;
-
-       
+        public static bool addSupplier;
+        public static bool updateSupplier;
+        public static bool deleteSupplier;
+        public static bool viewSupplier;
+        public static bool addCutomer;
+        public static bool updateCustomer;
+        public static bool deleteCustomer;
+        public static bool viewCustomer;
         
+        public static bool getAddSupplier()
+        {
+            return addSupplier;
+        }
 
         public static string getUsername()
         {
